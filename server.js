@@ -11,8 +11,8 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 
 app.use(express.json());
 
-// Import routes
-const transactionRoutes = require('./routes/transactions');
-app.use('/api/transactions', transactionRoutes);
+// Import and use routes
+const transactionRoutes = require('./routes/transactionRoutes');
+app.use('/api', transactionRoutes); // Mounting on '/api'
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
